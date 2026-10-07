@@ -119,7 +119,7 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
             width: 44px;
             height: 44px;
             border-radius: 14px;
-            object-cover: cover;
+            object-fit: cover;
             box-shadow: 0 0 20px var(--primary-glow);
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
@@ -194,6 +194,39 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
         .hero-section {
             padding: 3rem 0 2rem;
             text-align: center;
+        }
+
+        .hero-logo-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-logo {
+            width: 128px;
+            height: 128px;
+            border-radius: 32px;
+            object-fit: cover;
+            box-shadow: 0 16px 45px rgba(225, 29, 72, 0.45), 0 0 55px rgba(244, 63, 94, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: heroFloat 4s ease-in-out infinite;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-logo:hover {
+            transform: translateY(-4px) scale(1.06);
+            box-shadow: 0 22px 55px rgba(225, 29, 72, 0.6), 0 0 70px rgba(244, 63, 94, 0.4);
+        }
+
+        @keyframes heroFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         .hero-pill {
@@ -845,6 +878,11 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
 
         /* Responsividade */
         @media (max-width: 640px) {
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+                border-radius: 24px;
+            }
             .tools-grid {
                 grid-template-columns: 1fr;
             }
@@ -900,6 +938,9 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
     <main class="container">
         <!-- Hero Section -->
         <section class="hero-section">
+            <div class="hero-logo-wrap">
+                <img src="logo.png" alt="PDFácil" class="hero-logo" onerror="this.src='icon-512.png'">
+            </div>
             <div class="hero-pill">
                 <i class="fa-solid fa-bolt"></i> Processamento Instantâneo & 100% Privado
             </div>
