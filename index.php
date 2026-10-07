@@ -36,14 +36,16 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Bibliotecas essenciais de PDF (Client-side Powerhouse) -->
-    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.9/dist/pdf-lib.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+    <!-- Bibliotecas essenciais de PDF (Locais para máxima velocidade e offline PWA) -->
+    <script src="assets/vendor/pdf-lib.min.js"></script>
+    <script src="assets/vendor/pdf.min.js"></script>
+    <script src="assets/vendor/jszip.min.js"></script>
+    <script src="assets/vendor/sortable.min.js"></script>
 
     <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/vendor/pdf.worker.min.js';
+        }
     </script>
 
     <style>
@@ -1131,7 +1133,7 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
 
     <!-- Script Principal do PDFácil -->
     <script>
-        const { PDFDocument, rgb, degrees } = PDFLib;
+        const { PDFDocument, rgb, degrees } = window.PDFLib || {};
 
         // Estado da Aplicação
         let activeTool = 'merge';
@@ -1405,6 +1407,11 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
         }
 
         btnCloseWs.addEventListener('click', closeWorkspace);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeWorkspace();
+            }
+        });
 
         function resetWorkspace() {
             loadedFiles = [];
