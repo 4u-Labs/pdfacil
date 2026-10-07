@@ -1,0 +1,2 @@
+# Bloqueio de acesso direto a arquivos temporários de processamento
+Deny from all

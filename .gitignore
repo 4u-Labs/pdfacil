@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+scratch/
+.env
+data/*.db
+storage/*
+!storage/.htaccess
