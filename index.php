@@ -37,14 +37,14 @@ $pageTitle = "PDFácil — O Canivete Suíço de PDFs e Documentos | 4U.IA.BR";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Bibliotecas essenciais de PDF (Locais para máxima velocidade e offline PWA) -->
-    <script src="assets/vendor/pdf-lib.min.js"></script>
-    <script src="assets/vendor/pdf.min.js"></script>
-    <script src="assets/vendor/jszip.min.js"></script>
-    <script src="assets/vendor/sortable.min.js"></script>
+    <script src="assets/libs/pdf-lib.min.js"></script>
+    <script src="assets/libs/pdf.min.js"></script>
+    <script src="assets/libs/jszip.min.js"></script>
+    <script src="assets/libs/sortable.min.js"></script>
 
     <script>
         if (typeof pdfjsLib !== 'undefined') {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/vendor/pdf.worker.min.js';
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/libs/pdf.worker.min.js';
         }
     </script>
 

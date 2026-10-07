@@ -3,11 +3,11 @@ const ASSETS = [
   './',
   './index.php',
   './manifest.json',
-  './assets/vendor/pdf-lib.min.js',
-  './assets/vendor/pdf.min.js',
-  './assets/vendor/pdf.worker.min.js',
-  './assets/vendor/jszip.min.js',
-  './assets/vendor/sortable.min.js'
+  './assets/libs/pdf-lib.min.js',
+  './assets/libs/pdf.min.js',
+  './assets/libs/pdf.worker.min.js',
+  './assets/libs/jszip.min.js',
+  './assets/libs/sortable.min.js'
 ];
 
 self.addEventListener('install', (e) => {
